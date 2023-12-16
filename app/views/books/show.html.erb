@@ -11,6 +11,10 @@
       <table class="table">
         <tr>
           <td>
+            <%= link_to user_path(@book.user_id) do %>
+              <%= image_tag @book.user.get_profile_image(80,80) %>
+              <p><%= @book.user.name %></p>
+            <% end %>
           </td>
           <td>
             <%= link_to book_path(@book) do %>
@@ -20,6 +24,14 @@
           <td>
             <%= @book.body %>
           </td>
+          <% if @book.user == current_user %>
+          <td>
+            <%= link_to "Edit", edit_book_path(@book), class: "btn btn-success" %>
+          </td>
+          <td>
+            <%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-danger" %>
+          </td>
+          <% end %>
         </tr>
       </table>
     </div>  
