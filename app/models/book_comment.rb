@@ -1,7 +1,7 @@
 class BookComment < ApplicationRecord
   
-  belongs_to :user, dependent: :destroy
-  belongs_to :book, dependent: :destroy
+  belongs_to :user
+  belongs_to :book
   
   validates :comment, presence: true
 end
