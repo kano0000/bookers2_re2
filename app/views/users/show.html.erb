@@ -86,7 +86,7 @@
           </tr>
         </tbody>
       </table>
-      
+
       <!--グラフ-->
       <canvas id = "postCountChart"></canvas>
       <script>
@@ -114,13 +114,13 @@
                 }
               ],
             },
-            
+
             options: {
               title: {
                 display: true,
                 text: '7日間の投稿数の比較'
               },
-            
+
             responsive: true,
             scales: {
               y: {
@@ -132,6 +132,7 @@
         });
       });
       </script>
+      <%= render "posts_on_date_form", user: @user %>
     </div>
     </div>
   </div>
