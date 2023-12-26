@@ -23,7 +23,7 @@ class ChatsController < ApplicationController
   
   def create
     @chat = current_user.chats.new(chat_params)
-    render :validate unless @chat.save
+    @chat.save
   end
   
   
