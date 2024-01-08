@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'goups/new'
+  get 'goups/index'
+  get 'goups/show'
+  get 'goups/edit'
   devise_for :users
   
   root to: 'homes#top'
   get 'home/about' => "homes#about"
+  get "/search", to: "searches#search"
   
   resources :books, only: [:index, :create, :show, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
@@ -18,7 +23,7 @@ Rails.application.routes.draw do
   end
   
   resources :chats, only: [:show, :create, :destroy]
+  resources :groups, only: [:new, :index, :show, :create, :edit, :update]
   
-  get "/search", to: "searches#search"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

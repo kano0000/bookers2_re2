@@ -1,0 +1,2 @@
+module GoupsHelper
+end
