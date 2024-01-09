@@ -1,0 +1,29 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% groups.each do |group| %>
+    <tr>
+      <td>
+        <%= image_tag group.get_gruop_image(80,80) %>
+      </td>
+      <td>
+        <%= group.name %>
+      </td>
+      <td>
+        <%= link_to "Show", group_path(group) %>
+      </td>
+      <td>
+        <% if group.is_owned_by?(current_user) %>
+          <%= link_to "Edit", edit_group_path(group), class: "btn btn-success" %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
