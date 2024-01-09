@@ -3,7 +3,7 @@ class Group < ApplicationRecord
   belongs_to :owner, class_name: "User"
   
   validates :name, presence: true
-  validates :introuduction, presence: true
+  validates :introduction, presence: true
   has_one_attached :group_image
   
   def get_group_image
