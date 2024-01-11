@@ -33,6 +33,7 @@
       <td>
         閲覧数: <%= book.view_count %>
       </td>
+      <td><%= render "books/static_rate", book: book %></td>
     </tr>
     <% end %>
   </tbody>
