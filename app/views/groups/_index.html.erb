@@ -3,6 +3,7 @@
     <tr>
       <th>image</th>
       <th>name</th>
+      <th>members</th>
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -14,6 +15,9 @@
       </td>
       <td>
         <%= group.name %>
+      </td>
+      <td>
+        <%= group.users.count %>
       </td>
       <td>
         <%= link_to "Show", group_path(group) %>
