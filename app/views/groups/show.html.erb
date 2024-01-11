@@ -31,17 +31,16 @@
               <li style="list-style:none;"><%= user.name %></li>
             <% end %>
           </td>
-          <td>
             <% if @group.is_owned_by?(current_user) %>
-              <%= link_to "Edit", edit_group_path(@group), class: "btn btn-success" %>
+              <td><%= link_to "Edit", edit_group_path(@group), class: "btn btn-success" %></td>
+             <td><%= link_to "Notice an Event", new_group_event_notice_path(@group), class: "btn btn-info" %></td>
             <% else %>
               <% if @group.include_user?(current_user) %>
-                <%= link_to "Leave this group", group_group_users_path(@group), method: :delete, class: "btn btn-danger", style: "white-space: nowrap;" %>
+                <td><%= link_to "Leave this group", group_group_users_path(@group), method: :delete, class: "btn btn-danger", style: "white-space: nowrap;" %></td>
               <% else %>
-                <%= link_to "Join this group", group_group_users_path(@group), method: :post, class: "btn btn-success", style: "white-space: nowrap;" %>
+                <td><%= link_to "Join this group", group_group_users_path(@group), method: :post, class: "btn btn-success", style: "white-space: nowrap;" %></td>
               <% end %>
             <% end %>
-          </td>
         </tr>
       </table>
     </div>
