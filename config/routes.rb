@@ -1,18 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'groups/new'
-  get 'groups/index'
-  get 'groups/show'
-  get 'groups/edit'
-  get 'goups/new'
-  get 'goups/index'
-  get 'goups/show'
-  get 'goups/edit'
   devise_for :users
-  
   root to: 'homes#top'
   get 'home/about' => "homes#about"
   get "/search", to: "searches#search"
+  get "tag_searches/search" => "tag_searches#search"
   
   resources :books, only: [:index, :create, :show, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
